@@ -1,4 +1,4 @@
-# create-orientation Skill
+# create-orientation: A Claude Code skill for determining a repo's core purpose
 
 ## Usage
 
