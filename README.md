@@ -1,24 +1,28 @@
-# create-orientation: A Claude Code skill for determining a repo's core purpose
+# orient: A Claude Code plugin for orienting users to a repo
 
-## Usage
+## Installation + usage
 
-This skill is designed to create an `orientation.md` file for a code repo by running
+Add this repo as a Claude Code plugin marketplace, install the plugin, then reload:
 
 ```
-/create-orientation
+/plugin marketplace add https://github.com/mcmullarkey/orient.git
+/plugin install orient@orient
+/plugin reload
 ```
 
-in Claude Code or your agentic coding harness of choice.
+Then run the skill inside any repo to generate an `orientation.md` file for it:
 
-This skill can stand alone, but is primarily designed to be used in conjunction with the [`agentic-learning-opportunities` skill](https://github.com/DrCatHicks/learning-opportunities) 
+```
+/orient:orient
+```
 
-Once you've created the `orientation.md` file via `/create-orientation` you can then run
+This plugin can stand alone, but is primarily designed to be used in conjunction with the [`learning-opportunities` plugin](https://github.com/DrCatHicks/learning-opportunities)
+
+Once you've created the `orientation.md` file via `/orient:orient` you can then run
 
 ```
 /learning-opportunities orientation
 ```
-
-in Claude Code or your agentic coding harness of choice.
 
 This command will provide self-quizzing lessons based on core elements of the repo.
 
