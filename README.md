@@ -15,7 +15,9 @@ Then reload Claude code + run the skill inside any repo to generate an `orientat
 
 ```
 # Ctrl + C twice in quick succession to exit current Claude Code session
+# Start new Claude Code session
 claude
+# Within Claude Code run the orient skill inside the repo of your choice
 /orient
 ```
 
