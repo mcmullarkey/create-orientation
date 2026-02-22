@@ -29,3 +29,15 @@ The skill works to identify what language the repo primarily uses + the repo's p
 You can find the orientation.md file in the `.claude/agentic-learning-opportunities/resources/` directory within your repo. You can add this file to version control so others can benefit from its guidance or put it in `.gitignore`.
 
 Feel free to edit the `orientation.md` file by hand if it gets something wrong about the repo!
+
+## Author
+
+**Dr. Michael Mullarkey**
+
+I'm a machine learning engineer who used to be a therapist + social science researcher. I'm thinking a lot about how to leverage agentic AI to help people learn skills, see [blendtutor](https://github.com/mcmullarkey/blendtutor) for another example.
+
+- [Website](https://mcmullarkey.github.io/)
+
+## Sources
+
+See `resources/bibliography.md`
