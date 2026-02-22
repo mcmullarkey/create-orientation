@@ -2,26 +2,29 @@
 
 ## Installation + usage
 
-Add this repo as a Claude Code plugin marketplace, install the plugin, then reload:
+Add this repo as a Claude Code plugin marketplace + install the plugin
 
 ```
 /plugin marketplace add https://github.com/mcmullarkey/orient.git
+```
+```
 /plugin install orient@orient
-/plugin reload
 ```
 
-Then run the skill inside any repo to generate an `orientation.md` file for it:
+Then reload Claude code + run the skill inside any repo to generate an `orientation.md` file for that repo
 
 ```
-/orient:orient
+# Ctrl + C twice in quick succession to exit current Claude Code session
+claude
+/orient
 ```
 
 This plugin can stand alone, but is primarily designed to be used in conjunction with the [`learning-opportunities` plugin](https://github.com/DrCatHicks/learning-opportunities)
 
-Once you've created the `orientation.md` file via `/orient:orient` you can then run
+Once you've created the `orientation.md` file via `/orient` you can then run
 
 ```
-/learning-opportunities orientation
+/learning-opportunities orient
 ```
 
 This command will provide self-quizzing lessons based on core elements of the repo.
