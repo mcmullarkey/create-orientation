@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "orient",
-      "source": ".",
+      "source": "./orient",
       "description": "Generates a repo-specific orientation.md for use with the agent-learning-opportunities skill",
       "version": "1.0.0",
       "author": {
