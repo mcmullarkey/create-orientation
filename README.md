@@ -21,7 +21,7 @@ claude
 /orient
 ```
 
-This plugin can stand alone, but is primarily designed to be used in conjunction with the [`learning-opportunities` plugin](https://github.com/DrCatHicks/learning-opportunities)
+This plugin can stand alone, but is designed to be used with the [`learning-opportunities` plugin](https://github.com/DrCatHicks/learning-opportunities)
 
 Once you've created the `orientation.md` file via `/orient` you can then run
 
