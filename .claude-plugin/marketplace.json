@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "orient",
+  "owner": {
+    "name": "Dr. Michael Mullarkey"
+  },
+  "metadata": {
+    "description": "Generates a repo-specific orientation.md for use with the agent-learning-opportunities skill",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "orient",
+      "source": ".",
+      "description": "Generates a repo-specific orientation.md for use with the agent-learning-opportunities skill",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dr. Michael Mullarkey"
+      },
+      "keywords": ["orientation", "onboarding", "learning", "codebase"],
+      "category": "education"
+    }
+  ]
+}
