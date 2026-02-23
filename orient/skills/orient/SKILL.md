@@ -154,5 +154,5 @@ Keep each section concise. This is a teaching scaffold, not documentation. Prior
 Tell the user:
 - Where the file was written
 - How many key files and concepts were identified
-- How to use it: `/learning-opportunities orientation`
+- How to use it: `/learning-opportunities orient`
 - That they can re-run `/orient:orient` at any time to regenerate it as the codebase evolves
