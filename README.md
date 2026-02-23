@@ -7,11 +7,11 @@ Add this repo as a Claude Code plugin marketplace + install the plugin
 ```
 # Start a Claude Code session
 claude
-# Add this git repo as a marketplace
+# Within the Claude Code session, add this git repo as a marketplace
 /plugin marketplace add https://github.com/mcmullarkey/orient.git
 ```
 ```
-# Install this skill
+# Within the Claude Code session, install this skill
 /plugin install orient@orient
 ```
 
