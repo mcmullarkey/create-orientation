@@ -31,7 +31,7 @@ This plugin can stand alone, but is designed to eventually be used with the [`le
 
 Warning: This mode is more experimental and seems to be more token-hungry in initial testing compared to the default, non-showboat mode.
 
-You can also run `/orient showboat` to generate `orientation.md` as a detailed, linear code walkthrough using the [`showboat`](https://github.com/shoelace-ui/showboat) tool via `uvx`. This approach builds off of the linear walkthrough prompt described by Simon Willison [here](https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/).
+You can also run `/orient showboat` to generate `orientation.md` as a detailed, linear code walkthrough using the [`showboat`](https://github.com/simonw/showboat) tool via `uvx`. This approach builds off of the linear walkthrough prompt described by Simon Willison [here](https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/).
 
 ```
 # Within a Claude Code session
@@ -44,7 +44,7 @@ This produces the same `orientation.md` file in the same location as the default
 
 `uv` must be installed for showboat mode. If it's not on your PATH, the skill will stop and provide an install link.
 
-Install uv: https://docs.astral.sh/uv/getting-started/installation/
+Install instructions for uv are also [here](https://docs.astral.sh/uv/getting-started/installation/)
 
 ### Disclaimer
 
