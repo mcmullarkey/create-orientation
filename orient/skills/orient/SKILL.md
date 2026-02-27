@@ -1,6 +1,7 @@
 ---
 name: orient
 description: Generates a repo-specific orientation.md resource for the agent-learning-opportunities skill. Only invoke via slash command (/orient:orient). Do not trigger automatically.
+argument-hint: "[showboat]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash, Write
 ---
@@ -26,6 +27,16 @@ Always write to the **project level**, regardless of where the `agent-learning-o
 Create the directory `.claude/skills/agent-learning-opportunities/resources/` if it does not exist.
 
 This keeps orientation files co-located with the repo they describe — they can be committed to version control, shared with teammates, and never collide across projects.
+
+---
+
+## Argument check
+
+You were invoked with arguments: `$ARGUMENTS`
+
+If the argument is `showboat`, skip to the **Showboat Path** section below.
+
+Otherwise, continue with Steps 2–5 (the default path).
 
 ---
 
@@ -156,3 +167,90 @@ Tell the user:
 - How many key files and concepts were identified
 - How to use it: `/learning-opportunities orient`
 - That they can re-run `/orient:orient` at any time to regenerate it as the codebase evolves
+
+---
+
+## Showboat Path
+
+This path replaces Steps 2–5 when the argument is `showboat`. It produces `orientation.md` at the same location identified in Step 1, but uses the `showboat` CLI tool (via `uvx`) to build a detailed, linear code walkthrough.
+
+### Showboat Step 1: Check for uv
+
+Run `command -v uv` to verify that `uv` is installed.
+
+If `uv` is not found, tell the user:
+
+> `uv` is required for showboat mode but was not found on your PATH.
+> Install it from: https://docs.astral.sh/uv/getting-started/installation/
+
+Then stop — do not proceed further.
+
+### Showboat Step 2: Read the repo and plan the document
+
+Read the repo to understand its structure, purpose, and key code paths. Then plan a linear walkthrough document with:
+
+- A title and table of contents
+- Commentary sections that explain the codebase narratively, in reading order
+- A Code Listings appendix containing the actual code snippets referenced by commentary
+- A suggested exercise sequence (same criteria as Step 4's exercise requirements — exactly 2 orientation exercises)
+
+Plan all section headings, code snippets, and sequential listing numbers **upfront before writing anything**. Each listing gets a sequential number (Listing 1, Listing 2, etc.) and a short description.
+
+### Showboat Step 3: Learn the showboat tool
+
+Run `uvx showboat --help` to learn the available commands and their syntax.
+
+### Showboat Step 4: Build orientation.md using showboat commands
+
+Use the showboat CLI to build the file. The output path is the same `orientation.md` from Step 1. Execute commands in this order:
+
+#### 4a. Initialize the document
+
+```
+uvx showboat init <path-to-orientation.md> "<Title>"
+```
+
+Then add a table of contents via `uvx showboat note`.
+
+#### 4b. Write all commentary sections
+
+Add each commentary section using `uvx showboat note`. Follow these rules for note content:
+
+- **No fenced code blocks** inside notes — use inline backtick code (`` `like_this` ``) instead
+- Reference code listings with inline links: `*([Listing N: description](#listing-N))*`
+- Write narratively — explain *why* the code is structured this way, not just *what* it does
+
+#### 4c. Write the Code Listings appendix
+
+For each listing planned in Showboat Step 2:
+
+1. Add an anchor note: `uvx showboat note` with a heading like `### Listing N: description` and an HTML anchor `<a id="listing-N"></a>`
+2. Add the code via `uvx showboat exec` to capture the actual file content (e.g., using `cat` or `sed` to extract the relevant lines)
+
+#### 4d. Append suggested exercise sequence
+
+Add a final section via `uvx showboat note` with exactly 2 orientation exercises. These follow the same criteria as the default path's Step 4:
+
+- Direct the learner to read one specific, short artifact first
+- Then ask them to synthesize or explain what they just read
+- Never ask them to predict something they couldn't know without reading
+- Specify: the exact file to open, what to read, and what synthesis question to answer
+
+#### 4e. Verify the document
+
+Run:
+
+```
+uvx showboat verify <path-to-orientation.md>
+```
+
+Fix any issues reported before proceeding.
+
+### Showboat Step 5: Confirm to the user
+
+Tell the user:
+
+- Where the file was written
+- That it was generated using showboat mode (a linear code walkthrough)
+- How to use it: `/learning-opportunities orient`
+- That they can re-run `/orient showboat` at any time to regenerate it
