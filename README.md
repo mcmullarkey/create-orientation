@@ -25,15 +25,30 @@ claude
 /orient
 ```
 
-This plugin can stand alone, but is designed to be used with the [`learning-opportunities` plugin](https://github.com/DrCatHicks/learning-opportunities)
+This plugin can stand alone, but is designed to eventually be used with the [`learning-opportunities` plugin](https://github.com/DrCatHicks/learning-opportunities) to create self-quizzing lessons based on the repo's core functionality.
 
-Once you've created the `orientation.md` file via `/orient` you can then run
+## Showboat mode
+
+Warning: This mode is more experimental and seems to be more token-hungry in initial testing compared to the default, non-showboat mode.
+
+You can also run `/orient showboat` to generate `orientation.md` as a detailed, linear code walkthrough using the [`showboat`](https://github.com/shoelace-ui/showboat) tool via `uvx`. This approach builds off of the linear walkthrough prompt described by Simon Willison [here](https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/).
 
 ```
-/learning-opportunities orient
+# Within a Claude Code session
+/orient showboat
 ```
 
-This command will provide self-quizzing lessons based on core elements of the repo.
+This produces the same `orientation.md` file in the same location as the default mode, but structured as a listing-based walkthrough with commentary sections and a code listings appendix. If you want to keep output from both modes, you can customize the skill to write to different filenames.
+
+### Prerequisites
+
+`uv` must be installed for showboat mode. If it's not on your PATH, the skill will stop and provide an install link.
+
+Install uv: https://docs.astral.sh/uv/getting-started/installation/
+
+### Disclaimer
+
+Showboat mode runs `uvx showboat` commands to build the orientation document. By using `/orient showboat`, you agree to use the `showboat` tool via `uvx`. The `showboat` package is fetched and executed by `uvx` at runtime.
 
 ## Background
 
